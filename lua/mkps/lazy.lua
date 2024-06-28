@@ -15,6 +15,8 @@ local lazy_plugins = {
     {'folke/lazy.nvim'},
     -- ColorSchemes
     { 'catppuccin/nvim', name = 'catppuccin' },
+    { "ellisonleao/gruvbox.nvim", priority = 1000 , config = true, opts = ...},
+    { "EdenEast/nightfox.nvim" }, -- lazy
     -- Treesitter
     {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
     {"nvim-treesitter/playground"},
