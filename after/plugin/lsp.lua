@@ -17,7 +17,7 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-  ensure_installed = {'ts_ls', 'rust_analyzer', 'clangd'},
+  ensure_installed = {'pylsp', 'ts_ls', 'rust_analyzer', 'clangd'},
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()
@@ -25,6 +25,62 @@ require('mason-lspconfig').setup({
       require('lspconfig').lua_ls.setup(lua_opts)
     end,
   }
+})
+
+require'py_lsp'.setup({
+    language_server = "pylsp",
+    source_strategies = {"poetry", "default", "system"},
+    capabilities = capabilities,
+    on_attach = on_attach,
+    pylsp_plugins = {
+        pyls_mypy = {
+            enabled = true
+        },
+        rope_autoimport = {
+            enabled = true
+        },
+        rope_completion = {
+            enabled = true
+        },
+        pyls_isort = {
+            enabled = true
+        },
+        pycodestyle = {
+            enabled = false,
+        },
+        flake8 = {
+            enabled = true,
+            executable = venv_bin_detection("flake8"),
+        }
+    }
+})
+
+require'py_lsp'.setup({
+    language_server = "pylsp",
+    source_strategies = {"poetry", "default", "system"},
+    capabilities = capabilities,
+    on_attach = on_attach,
+    pylsp_plugins = {
+        pyls_mypy = {
+            enabled = true
+        },
+        rope_autoimport = {
+            enabled = true
+        },
+        rope_completion = {
+            enabled = true
+        },
+        pyls_isort = {
+            enabled = true
+        },
+        pycodestyle = {
+            enabled = false,
+        },
+        flake8 = {
+            enabled = true,
+            executable = venv_bin_detection("flake8"),
+        }
+    }
 })
 
 local cmp = require('cmp')

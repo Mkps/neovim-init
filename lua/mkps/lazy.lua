@@ -34,6 +34,8 @@ local lazy_plugins = {
     {'hrsh7th/cmp-nvim-lsp'},
     {'hrsh7th/nvim-cmp'},
     {'L3MON4D3/LuaSnip'},
+    {'HallerPatrick/py_lsp.nvim'},
+    {'tweekmonster/django-plus.vim'},
 }
 require("lazy").setup(lazy_plugins)
 --require("lazy").setup(plugins, opts)
